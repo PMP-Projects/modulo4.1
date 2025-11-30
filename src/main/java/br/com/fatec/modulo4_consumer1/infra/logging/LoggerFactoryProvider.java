@@ -1,0 +1,11 @@
+package br.com.fatec.modulo4_consumer1.infra.logging;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class LoggerFactoryProvider {
+
+    public static Logger getLogger(Class<?> clazz) {
+        return LoggerFactory.getLogger(clazz);
+    }
+}
