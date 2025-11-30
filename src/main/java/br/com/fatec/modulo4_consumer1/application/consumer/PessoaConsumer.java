@@ -31,8 +31,10 @@ public class PessoaConsumer {
             topics = "${spring.kafka.topic.lambda.kafka}",
             groupId = "${spring.kafka.consumer.group-id}"
     )
-    public void listener(@Payload Pessoa pessoa, ConsumerRecord<String, Pessoa> record) {
-        log.info("[Consumer1] Evento recebido → {}", record.topic());
+    public void listener(@Payload Pessoa pessoa, ConsumerRecord<String, Pessoa> consumerRecord) {
+
+        log.info("[Consumer1] Evento recebido → {}", consumerRecord.topic());
         pessoaService.processarEntrada(pessoa);
     }
+
 }

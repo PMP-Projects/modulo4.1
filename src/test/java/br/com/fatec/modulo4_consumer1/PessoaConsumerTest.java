@@ -5,7 +5,6 @@ import br.com.fatec.modulo4_consumer1.core.domain.Pessoa;
 import br.com.fatec.modulo4_consumer1.core.service.PessoaService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,12 +23,12 @@ class PessoaConsumerTest {
 
         PessoaConsumer consumer = new PessoaConsumer(logger, service);
 
-        Pessoa pessoa = new Pessoa("Julia", LocalDate.of(2000, 5, 10));
+        Pessoa pessoa = new Pessoa("Julio", LocalDate.of(2000, 5, 10));
 
-        ConsumerRecord<String, Pessoa> record =
+        ConsumerRecord<String, Pessoa> consumerRecord  =
                 new ConsumerRecord<>("lambda.kafka", 0, 0L, "key", pessoa);
 
-        consumer.listener(pessoa, record);
+        consumer.listener(pessoa, consumerRecord);
 
         Mockito.verify(logger).info("[Consumer1] Evento recebido → {}", "lambda.kafka");
 

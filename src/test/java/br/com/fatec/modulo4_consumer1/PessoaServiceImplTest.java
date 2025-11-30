@@ -19,7 +19,7 @@ class PessoaServiceImplTest {
         Logger logger = Mockito.mock(Logger.class);
         PessoaServiceImpl service = new PessoaServiceImpl(logger);
 
-        Pessoa pessoa = new Pessoa("Julia", LocalDate.of(2000, 5, 10));
+        Pessoa pessoa = new Pessoa("Julio", LocalDate.of(2000, 5, 10));
 
         service.processarEntrada(pessoa);
 

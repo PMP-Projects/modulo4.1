@@ -14,11 +14,12 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public JsonDeserializer<?> jsonDeserializer() {
+    public JsonDeserializer<Object> jsonDeserializer() {
+
         JsonDeserializer<Object> deserializer = new JsonDeserializer<>();
         deserializer.addTrustedPackages("*");
-        deserializer.setRemoveTypeHeaders(true);
-        deserializer.setUseTypeHeaders(false);
+
         return deserializer;
     }
+
 }
