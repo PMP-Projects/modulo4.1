@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 
 public class LoggerFactoryProvider {
 
+    private LoggerFactoryProvider() {
+        throw new UnsupportedOperationException("Utility class");
+    }
+
     public static Logger getLogger(Class<?> clazz) {
         return LoggerFactory.getLogger(clazz);
     }
